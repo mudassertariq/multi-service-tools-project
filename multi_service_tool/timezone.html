@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Zone Converter | Multi-Service Web Tools Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="auth-check.js"></script>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+    <div class="logo">MultiTools</div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <nav>
+        <ul id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ===== PAGE HEADER ===== -->
+<section class="page-header">
+    <h1>Time Zone Converter</h1>
+    <p>Convert time between any time zones worldwide using the full IANA timezone database.</p>
+</section>
+
+<!-- ===== TIME ZONE CONVERTER ===== -->
+<section class="timezone-calculator">
+    <div class="timezone-box">
+
+        <label>Select Date & Time</label>
+        <input type="datetime-local" id="dateTimeInput">
+
+        <label>From Time Zone</label>
+        <select id="fromZone"></select>
+
+        <label>To Time Zone</label>
+        <select id="toZone"></select>
+
+        <button onclick="convertTime()" class="btn-primary">
+            Convert Time
+        </button>
+
+        <div class="result">
+            <p>Converted Time:</p>
+            <h2 id="timeResult">--:-- --</h2>
+            <div class="current-time-display" id="currentTimeDisplay"></div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <p>© 2026 Multi-Service Web Tools Platform | All Rights Reserved</p>
+</footer>
+
+<script src="timezone.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

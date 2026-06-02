@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Whiteboard | Multi-Service Web Tools Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="auth-check.js"></script>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+    <div class="logo">MultiTools</div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <nav>
+        <ul id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ===== PAGE HEADER ===== -->
+<section class="page-header">
+    <h1>Online Whiteboard</h1>
+    <p>Draw freely and save your sketches directly from the browser. Works on desktop and mobile.</p>
+</section>
+
+<!-- ===== WHITEBOARD SECTION ===== -->
+<section class="whiteboard-tool">
+    <div class="whiteboard-box">
+
+        <canvas id="whiteboard" width="800" height="500"></canvas>
+
+        <div class="controls">
+            <label>Color:</label>
+            <input type="color" id="colorPicker" value="#38bdf8">
+
+            <label>Size:</label>
+            <input type="number" id="brushSize" value="3" min="1" max="30">
+
+            <button onclick="toggleEraser()" class="btn-secondary" id="eraserBtn">Eraser</button>
+            <button onclick="undoAction()" class="btn-secondary">Undo</button>
+            <button onclick="clearCanvas()" class="btn-secondary">Clear</button>
+            <button onclick="saveCanvas()" class="btn-primary">Save as Image</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <p>© 2026 Multi-Service Web Tools Platform | All Rights Reserved</p>
+</footer>
+
+<script src="whiteboard.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

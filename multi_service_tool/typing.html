@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Typing Speed Tester | Multi-Service Web Tools Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="auth-check.js"></script>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+    <div class="logo">MultiTools</div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <nav>
+        <ul id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ================= PAGE HEADER ================= -->
+<section class="page-header">
+    <h1>Typing Speed Tester</h1>
+    <p>Test your typing speed and accuracy in real-time. Type the given passage as fast and accurately as possible.</p>
+</section>
+
+<!-- ================= TYPING TEST SECTION ================= -->
+<section class="typing-test">
+    <div class="test-container">
+
+        <h3>Typing Passage:</h3>
+        <p id="text-to-type">
+            The quick brown fox jumps over the lazy dog. Practice your typing speed and improve accuracy.
+        </p>
+
+        <textarea id="typing-input" placeholder="Start typing here..." rows="6"></textarea>
+
+        <div class="buttons">
+            <button id="start-btn" class="btn-primary">Start Test</button>
+            <button id="reset-btn" class="btn-secondary">Reset</button>
+        </div>
+
+        <div class="results">
+            <p>Time: <span id="time">0</span> seconds</p>
+            <p>Words Per Minute (WPM): <span id="wpm">0</span></p>
+            <p>Accuracy: <span id="accuracy">0</span>%</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <p>© 2026 Multi-Service Web Tools Platform | All Rights Reserved</p>
+</footer>
+
+<script src="typing.js"></script>
+<script src="main.js"></script> 
+</body>
+</html>

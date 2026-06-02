@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Tools | Multi-Service Web Tools Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+    <div class="logo">MultiTools</div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <nav>
+        <ul id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ================= PAGE HEADER ================= -->
+<section class="page-header">
+    <h1>Our Web Tools</h1>
+    <p>
+        A collection of smart, fast, and user-friendly online tools designed
+        to simplify daily tasks for students and professionals.
+    </p>
+</section>
+
+<!-- ================= SEARCH & FILTER ================= -->
+<section class="tools-controls">
+    <input type="text" placeholder="Search tools..." id="searchBox">
+</section>
+
+<!-- ================= TOOLS GRID ================= -->
+<section class="tools">
+    <div class="tools-grid">
+
+        <!-- Tool 1 -->
+        <div class="tool-card">
+            <h3>Typing Speed Tester</h3>
+            <p>Test your typing speed and accuracy in real-time.</p>
+            <a href="typing.html" class="btn-secondary">Open Tool</a>
+        </div>
+
+        <!-- Tool 2 -->
+        <div class="tool-card">
+            <h3>Currency Converter</h3>
+            <p>Convert 150+ currencies instantly using live exchange rates.</p>
+           <a href="currency.html" class="btn-secondary">Open Tool</a>
+        </div>
+
+        <!-- Tool 3 -->
+        <div class="tool-card">
+            <h3>Duplicate Line Remover</h3>
+            <p>Remove duplicate lines from large text efficiently.</p>
+            <a href="duplicate.html" class="btn-secondary">Open Tool</a>
+        </div>
+
+        <!-- Tool 4 -->
+        <div class="tool-card">
+            <h3>Fuel Cost Calculator</h3>
+            <p>Calculate fuel cost for trips in metric or imperial units.</p>
+            <a href="fuel.html" class="btn-secondary">Open Tool</a>
+        </div>
+
+        <!-- Tool 5 -->
+        <div class="tool-card">
+            <h3>Time Zone Converter</h3>
+            <p>Convert time between any timezone worldwide with IANA support.</p>
+            <a href="timezone.html" class="btn-secondary">Open Tool</a>
+        </div>
+
+        <!-- Tool 6 -->
+        <div class="tool-card">
+            <h3>Tax Calculator</h3>
+            <p>Calculate tax with country-specific progressive brackets.</p>
+            <a href="tax.html" class="btn-secondary">Open Tool</a>
+        </div>
+
+        <!-- Tool 7 -->
+        <div class="tool-card">
+            <h3>Online Whiteboard</h3>
+            <p>Draw and save sketches with touch support for mobile.</p>
+            <a href="whiteboard.html" class="btn-secondary">Open Tool</a>
+        </div>
+
+        <!-- Tool 8 -->
+        <div class="tool-card">
+            <h3>Password Strength Checker</h3>
+            <p>Check the strength and security of passwords.</p>
+            <a href="password.html" class="btn-secondary">Open Tool</a>
+        </div>
+
+        <!-- Tool 9 -->
+        <div class="tool-card">
+            <h3>Word Counter / Text Analyzer</h3>
+            <p>Count words, characters, and analyze text.</p>
+            <a href="wordcounter.html" class="btn-secondary">Open Tool</a>
+        </div>
+
+        <!-- Tool 10 -->
+        <div class="tool-card">
+            <h3>Unit Converter</h3>
+            <p>Convert length, weight, temperature, area, volume, speed & more.</p>
+            <a href="unitconverter.html" class="btn-secondary">Open Tool</a>
+        </div>
+
+        <!-- Tool 11 -->
+        <div class="tool-card">
+            <h3>Random URL / Data Generator</h3>
+            <p>Generate random URLs or sample data instantly.</p>
+            <a href="random.html" class="btn-secondary">Open Tool</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <p>© 2026 Multi-Service Web Tools Platform | All Rights Reserved</p>
+</footer>
+
+<script src="main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const searchBox = document.getElementById("searchBox");
+    const toolCards = document.querySelectorAll(".tool-card");
+
+    searchBox.addEventListener("input", function () {
+        const query = searchBox.value.toLowerCase();
+
+        toolCards.forEach(card => {
+            const title = card.querySelector("h3").innerText.toLowerCase();
+            const desc = card.querySelector("p").innerText.toLowerCase();
+
+            if (title.includes(query) || desc.includes(query)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>

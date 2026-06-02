@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Converter | Multi-Service Web Tools Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="auth-check.js"></script>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+    <div class="logo">MultiTools</div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <nav>
+        <ul id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ===== PAGE HEADER ===== -->
+<section class="page-header">
+    <h1>Currency Converter</h1>
+    <p>Convert currency values instantly using live exchange rates from 150+ currencies worldwide.</p>
+</section>
+
+<!-- ===== CONVERTER SECTION ===== -->
+<section class="converter">
+    <div class="converter-box">
+
+        <label>Enter Amount</label>
+        <input type="number" id="amount" placeholder="Enter amount" value="1" min="0" step="any">
+
+        <label>From Currency</label>
+        <select id="fromCurrency">
+            <option value="">Loading currencies...</option>
+        </select>
+
+        <button class="swap-btn" onclick="swapCurrencies()" title="Swap currencies">⇅ Swap</button>
+
+        <label>To Currency</label>
+        <select id="toCurrency">
+            <option value="">Loading currencies...</option>
+        </select>
+
+        <button onclick="convertCurrency()" class="btn-primary">Convert</button>
+
+        <div class="result">
+            <p>Converted Amount:</p>
+            <h2 id="result">0</h2>
+            <p class="rate-info" id="rateInfo"></p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <p>© 2026 Multi-Service Web Tools Platform | All Rights Reserved</p>
+</footer>
+
+<script src="currency.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

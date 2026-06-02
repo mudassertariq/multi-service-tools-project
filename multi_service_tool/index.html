@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-Service Web Tools Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Navbar fix */
+        .navbar nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        /* Sirf auth buttons ke liye */
+        .auth-buttons a {
+            margin-left: 10px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .btn-login {
+            border: 2px solid #38bdf8;
+            color: #38bdf8;
+            background: transparent;
+        }
+        .btn-login:hover { background: #0ea5e9 ; color: #fff; }
+
+        .btn-register {
+            /* background: #38bdf8; */
+            color: #fff;
+            border: 2px solid #0ea5e9;
+            background: #0ea5e9
+            
+        }
+        .btn-register:hover { background: #0ea5e9; border-color: #0ea5e9; }
+
+        .btn-logout {
+            background: transparent;
+            border: 2px solid #f87171;
+            color: #f87171;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-logout:hover { background: #f87171; color: #fff; }
+
+        .user-greeting {
+            font-size: 14px;
+            font-weight: 600;
+            margin-left: 10px;
+            color: #38bdf8;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+    <div class="logo">MultiTools</div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <nav>
+        <ul id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Auth Buttons -->
+    <div class="auth-buttons" id="authButtons"></div>
+</header>
+
+<!-- ================= HERO SECTION ================= -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Multi-Service Web Tools Platform</h1>
+        <p>
+            A professional web-based platform providing multiple smart tools 
+            designed to simplify daily tasks for students and professionals.
+        </p>
+        <a href="tools.html" class="btn-primary">Explore All Tools</a>
+    </div>
+</section>
+
+<!-- ================= ABOUT PLATFORM ================= -->
+<section class="about">
+    <h2>About Our Platform</h2>
+    <p>
+        Multi-Service Web Tools Platform is a centralized solution that offers
+        various online utilities in one place. The platform eliminates the need
+        for installing separate software by providing fast, reliable, and 
+        user-friendly tools accessible through a web browser.
+    </p>
+</section>
+
+<!-- ================= FEATURED TOOLS ================= -->
+<section class="tools">
+    <h2>Featured Tools</h2>
+
+    <div class="tools-grid">
+        <div class="tool-card">
+            <h3>Typing Speed Tester</h3>
+            <p>Measure your typing speed and accuracy in real-time.</p>
+            <a href="typing.html" class="btn-secondary">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+            <h3>Currency Converter</h3>
+            <p>Convert 150+ currencies instantly using live exchange rates.</p>
+           <a href="currency.html" class="btn-secondary">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+            <h3>Duplicate Line Remover</h3>
+            <p>Remove duplicate lines from large text efficiently.</p>
+            <a href="duplicate.html" class="btn-secondary">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+            <h3>Fuel Cost Calculator</h3>
+            <p>Calculate fuel cost for trips in metric or imperial units.</p>
+            <a href="fuel.html" class="btn-secondary">Open Tool</a>
+        </div>
+    </div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="features">
+    <h2>Why Choose Our Platform?</h2>
+
+    <div class="features-grid">
+        <div class="feature-box">
+            <h4>Easy to Use</h4>
+            <p>Simple and intuitive interface for all users.</p>
+        </div>
+
+        <div class="feature-box">
+            <h4>Fast Performance</h4>
+            <p>Optimized tools for quick and accurate results.</p>
+        </div>
+
+        <div class="feature-box">
+            <h4>Free Access</h4>
+            <p>All tools are available without any cost.</p>
+        </div>
+
+        <div class="feature-box">
+            <h4>Responsive Design</h4>
+            <p>Accessible on desktop, tablet, and mobile devices.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= CALL TO ACTION ================= -->
+<section class="cta">
+    <h2>Start Using Smart Tools Today</h2>
+    <p>Boost your productivity with our all-in-one web tools platform.</p>
+    <a href="tools.html" class="btn-primary">View All Tools</a>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <p>© 2026 Multi-Service Web Tools Platform | All Rights Reserved</p>
+</footer>
+
+<script src="main.js"></script>
+
+<script>
+    // ── Login/Register Auth Check ──────────────────────
+    function loadAuthButtons() {
+        const token = localStorage.getItem('token');
+        const user  = JSON.parse(localStorage.getItem('user') || 'null');
+        const container = document.getElementById('authButtons');
+
+        if (token && user) {
+            // User logged in hai — naam aur logout button dikhao
+            container.innerHTML = `
+                <span class="user-greeting">👋 ${user.name}</span>
+                <button class="btn-logout" onclick="logoutUser()">Logout</button>
+            `;
+        } else {
+            // User logged out hai — login/register buttons dikhao
+            container.innerHTML = `
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="register.html" class="btn-register">Register</a>
+            `;
+        }
+    }
+
+    function logoutUser() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.location.reload();
+    }
+
+    // Page load hone par check karo
+    loadAuthButtons();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact | Multi-Service Web Tools Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        #alertMsg {
+            display: none;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            text-align: center;
+        }
+        #alertMsg.error   { background: rgba(255,100,100,0.2); color: #f87171; }
+        #alertMsg.success { background: rgba(52,211,153,0.2);  color: #34d399; }
+    </style>
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">MultiTools</div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <nav>
+        <ul id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="page-header">
+    <h1>Contact Us</h1>
+    <p>Have any questions or suggestions? Reach out to us using the form below.</p>
+</section>
+
+<section class="contact-form">
+    <div class="contact-box">
+
+        <div id="alertMsg"></div>
+
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Your Name">
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Your Email">
+
+        <label>Message</label>
+        <textarea id="message" rows="6" placeholder="Your Message"></textarea>
+
+        <button class="btn-primary" id="submitBtn" onclick="submitContact()">Submit</button>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2026 Multi-Service Web Tools Platform | All Rights Reserved</p>
+</footer>
+
+<script src="main.js"></script>
+
+<script>
+    // ─── CONFIG ──────────────────────────────────────────
+    const API_URL = 'http://localhostmulti_service_tool/contact.php';
+    // ─────────────────────────────────────────────────────
+
+    function showAlert(message, type = 'error') {
+        const el = document.getElementById('alertMsg');
+        el.textContent = message;
+        el.className = type;
+        el.style.display = 'block';
+    }
+
+    async function submitContact() {
+        const name    = document.getElementById('name').value.trim();
+        const email   = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const btn     = document.getElementById('submitBtn');
+
+        // Validation
+        if (!name || !email || !message) {
+            showAlert('All fields are required');
+            return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showAlert('Please enter a valid email address');
+            return;
+        }
+
+        if (message.length < 10) {
+            showAlert('Message must be at least 10 characters');
+            return;
+        }
+
+        // Loading state
+        btn.textContent = 'Sending...';
+        btn.disabled    = true;
+
+        try {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                showAlert(result.message, 'success');
+                // Form clear karo
+                document.getElementById('name').value    = '';
+                document.getElementById('email').value   = '';
+                document.getElementById('message').value = '';
+            } else {
+                showAlert(result.message);
+            }
+
+        } catch (error) {
+            showAlert('Server connection failed. Please try again.');
+        } finally {
+            btn.textContent = 'Submit';
+            btn.disabled    = false;
+        }
+    }
+</script>
+
+</body>
+</html>

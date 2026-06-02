@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tax Calculator | Multi-Service Web Tools Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="auth-check.js"></script>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+    <div class="logo">MultiTools</div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <nav>
+        <ul id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ===== PAGE HEADER ===== -->
+<section class="page-header">
+    <h1>Tax Calculator</h1>
+    <p>Calculate your tax and net income using country-specific tax brackets or custom rates.</p>
+</section>
+
+<!-- ===== TAX CALCULATOR ===== -->
+<section class="tax-calculator">
+    <div class="tax-box">
+
+        <label>Select Country / Tax System</label>
+        <select id="taxCountry" onchange="onCountryChange()">
+            <option value="custom">Custom Rate</option>
+            <option value="us">United States (Federal)</option>
+            <option value="uk">United Kingdom</option>
+            <option value="pakistan">Pakistan</option>
+            <option value="india">India</option>
+            <option value="canada">Canada (Federal)</option>
+            <option value="australia">Australia</option>
+            <option value="germany">Germany</option>
+            <option value="uae">UAE (0% Income Tax)</option>
+        </select>
+
+        <label>Enter Annual Income</label>
+        <input type="number" id="income" placeholder="Enter income" min="0" step="any">
+
+        <label>Select Currency</label>
+        <select id="taxCurrency">
+            <option value="USD">USD ($)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="PKR">PKR (₨)</option>
+            <option value="INR">INR (₹)</option>
+            <option value="CAD">CAD (C$)</option>
+            <option value="AUD">AUD (A$)</option>
+            <option value="AED">AED (د.إ)</option>
+        </select>
+
+        <div id="customRateContainer">
+            <label>Custom Tax Rate (%)</label>
+            <input type="number" id="customRate" placeholder="Enter tax rate %" min="0" max="100" step="0.1">
+        </div>
+
+        <button onclick="calculateTax()" class="btn-primary">
+            Calculate Tax
+        </button>
+
+        <div class="result">
+            <p>Tax Amount:</p>
+            <h2 id="taxAmount">0</h2>
+
+            <p>Net Income (After Tax):</p>
+            <h2 id="netIncome">0</h2>
+
+            <p>Effective Tax Rate:</p>
+            <h2 id="effectiveRate">0%</h2>
+        </div>
+
+        <div class="tax-breakdown" id="taxBreakdown"></div>
+
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <p>© 2026 Multi-Service Web Tools Platform | All Rights Reserved</p>
+</footer>
+
+<script src="tax.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

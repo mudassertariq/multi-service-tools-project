@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Duplicate Line Remover | Multi-Service Web Tools Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="auth-check.js"></script>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+    <div class="logo">MultiTools</div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <nav>
+        <ul id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ===== PAGE HEADER ===== -->
+<section class="page-header">
+    <h1>Duplicate Line Remover</h1>
+    <p>Remove duplicate lines from your text quickly and efficiently.</p>
+</section>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="duplicate-tool">
+    <div class="duplicate-box">
+
+        <label>Enter Text</label>
+        <textarea id="inputText" rows="8" placeholder="Paste your text here..."></textarea>
+
+        <div class="buttons">
+            <button onclick="removeDuplicates()" class="btn-primary">
+                Remove Duplicates
+            </button>
+            <button onclick="clearText()" class="btn-secondary">
+                Clear
+            </button>
+        </div>
+
+        <label>Result</label>
+        <textarea id="outputText" rows="8" placeholder="Result will appear here..." readonly></textarea>
+
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <p>© 2026 Multi-Service Web Tools Platform | All Rights Reserved</p>
+</footer>
+
+<script src="duplicate.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fuel Cost Calculator | Multi-Service Web Tools Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="auth-check.js"></script>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+    <div class="logo">MultiTools</div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <nav>
+        <ul id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ===== PAGE HEADER ===== -->
+<section class="page-header">
+    <h1>Fuel Cost Calculator</h1>
+    <p>Calculate fuel cost for your trip based on distance, fuel price, and average consumption. Supports both metric and imperial units.</p>
+</section>
+
+<!-- ===== FUEL CALCULATOR ===== -->
+<section class="fuel-calculator">
+    <div class="fuel-box">
+
+        <label>Unit System</label>
+        <select id="unitSystem" onchange="updateFuelLabels()">
+            <option value="metric">Metric (km, liters)</option>
+            <option value="imperial">Imperial (miles, gallons)</option>
+        </select>
+
+        <label id="distanceLabel">Distance (Kilometers)</label>
+        <input type="number" id="distance" placeholder="Enter distance" min="0" step="any">
+
+        <label id="averageLabel">Average Fuel Consumption (km per liter)</label>
+        <input type="number" id="average" placeholder="e.g. 12" min="0" step="any">
+
+        <label id="priceLabel">Fuel Price per Liter</label>
+        <input type="number" id="price" placeholder="e.g. 280" min="0" step="any">
+
+        <label>Currency Symbol</label>
+        <select id="fuelCurrency">
+            <option value="$">$ (USD)</option>
+            <option value="£">£ (GBP)</option>
+            <option value="€">€ (EUR)</option>
+            <option value="₨">₨ (PKR)</option>
+            <option value="₹">₹ (INR)</option>
+            <option value="C$">C$ (CAD)</option>
+            <option value="A$">A$ (AUD)</option>
+            <option value="د.إ">د.إ (AED)</option>
+        </select>
+
+        <button onclick="calculateFuel()" class="btn-primary">
+            Calculate Cost
+        </button>
+
+        <div class="result">
+            <p>Total Fuel Cost:</p>
+            <h2 id="fuelResult">0</h2>
+        </div>
+
+        <div class="fuel-breakdown" id="fuelBreakdown"></div>
+
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <p>© 2026 Multi-Service Web Tools Platform | All Rights Reserved</p>
+</footer>
+
+<script src="fuel.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
